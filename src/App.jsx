@@ -1,9 +1,9 @@
 const movieOptions = [
-  { title: 'Action', imageUrl: './images/actioncouch.jpg' },
-  { title: 'Comedy', imageUrl: './images/comedycouch.jpg' },
-  { title: 'Drama', imageUrl: './images/couchdrama.jpg' },
-  { title: 'Sci-Fi', imageUrl: './images/couchscifi.jpg' },
-  { title: 'Thriller', imageUrl: './images/couchthriller.jpg' },
+  { title: 'Action', imageUrl: '/react-final/images/actioncouch.jpg' },
+  { title: 'Comedy', imageUrl: '/react-final/images/comedycouch.jpg' },
+  { title: 'Drama', imageUrl: '/react-final/images/couchdrama.jpg' },
+  { title: 'Sci-Fi', imageUrl: '/react-final/images/couchscifi.jpg' },
+  { title: 'Thriller', imageUrl: '/react-final/images/couchthriller.jpg' },
 ]
 
 export default function App() {
