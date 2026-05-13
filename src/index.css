@@ -27,11 +27,50 @@ img { display: block; max-width: 100%; }
   display: grid;
   gap: 20px;
   place-items: center;
+  position: relative;
+  isolation: isolate;
   text-align: center;
-  padding: 24px;
+  padding: 24px clamp(72px, 14vw, 180px);
+  overflow: hidden;
   background:
     radial-gradient(circle at top, rgba(37, 99, 235, 0.2), transparent 28%),
     linear-gradient(180deg, #111 0%, #0d0d0d 100%);
+}
+
+.simple::before,
+.simple::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(52px, 10vw, 120px);
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(214, 234, 255, 0.18), transparent 14%, transparent 86%, rgba(9, 18, 48, 0.34)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(12, 32, 92, 0.96) 0,
+      rgba(12, 32, 92, 0.96) 18px,
+      rgba(28, 77, 176, 0.92) 18px,
+      rgba(28, 77, 176, 0.92) 34px,
+      rgba(10, 25, 74, 0.98) 34px,
+      rgba(10, 25, 74, 0.98) 54px
+    );
+  box-shadow:
+    inset -10px 0 18px rgba(0, 0, 0, 0.28),
+    inset 10px 0 18px rgba(255, 255, 255, 0.08),
+    0 0 35px rgba(17, 74, 184, 0.2);
+}
+
+.simple::before {
+  left: 0;
+  border-right: 1px solid rgba(163, 203, 255, 0.18);
+}
+
+.simple::after {
+  right: 0;
+  border-left: 1px solid rgba(163, 203, 255, 0.18);
+  transform: scaleX(-1);
 }
 
 .main-card {
@@ -161,6 +200,16 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 640px) {
+  .simple {
+    padding: 20px 24px;
+  }
+
+  .simple::before,
+  .simple::after {
+    width: 30px;
+    opacity: 0.7;
+  }
+
   .main-card {
     padding: 22px;
   }
